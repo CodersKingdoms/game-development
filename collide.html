@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+         <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
+    </head>
+    <body>
+        <script>
+
+
+var x = 200;
+
+var y = 10;
+
+var X = 500;
+
+var Y = 0;
+
+var pos = 450
+
+var speed=25;
+
+var aspeed = 25;
+
+var d , D;
+
+
+var score;
+
+
+var s = 0 ;
+
+
+
+function setup () {
+
+ createCanvas(390, 600);
+
+
+}
+
+
+
+function draw() {
+
+
+
+ background("black"); 
+
+
+
+ fill(225,213,0);
+
+
+
+ ellipse(mouseX,pos,30,30);
+
+
+
+ fill(225,0,0);
+
+
+
+ ellipse(x,y,40,40);
+
+
+
+ Y = Y+aspeed;
+
+
+
+ y = y+speed;
+
+
+
+ d = dist(mouseX,pos,x,y);
+
+
+
+ D = dist(mouseX,pos,X,Y);
+
+
+
+ ellipse(X,Y,40,40);
+
+
+
+ stroke("white");
+
+
+
+ strokeWeight(2);
+
+
+
+ s = s + 1;
+
+
+
+ score = s;
+
+
+
+ move();
+
+
+collide();
+ 
+
+
+
+}
+
+
+
+function move()
+
+
+{ 
+
+
+ text("score: "+s , 20,590);
+
+
+ if(y>550)
+  { 
+   y=0;
+   x=  Math.random()*390-30;
+}
+ if(Y>550)
+ {
+     Y=0;
+     X= Math.random()*340-60;
+ }
+}
+
+function collide()
+{
+   if(d<24||D<24) 
+   
+   {
+       frameRate(0);
+       textSize(24);
+       text("Game Over",175,300);
+       text(" Score: "+s,175,350);
+   }
+}
+
+        </script>
+    </body>
+</html>
